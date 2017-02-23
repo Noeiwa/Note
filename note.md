@@ -6,9 +6,9 @@ set depth_cue, 0; set opaque_background, 0; ray 800, 800; png output_file_name.p
 (v1.7)
 2. set cartoon_fancy_helices, 1
 
-CentOS
-upside
-1. sudo yum install hdf5 hdf5-devel
+##CentOS
+###upside
+####1. sudo yum install hdf5 hdf5-devel
 2. sudo easy_install h5py
 3. sudo yum install eigen3
 
