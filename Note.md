@@ -13,6 +13,10 @@ set depth_cue, 0; set opaque_background, 0; ray 800, 800; png output_file_name.p
 2. `sudo easy_install h5py`
 3. `sudo yum install eigen3`
 
+### GCC
+`sudo yum install centos-release-scl`
+`sudo yum install devtoolset-6-gcc*`
+`scl enable devtoolset-6 bash`
 
 ###GMP:
 1. `sudo yum install lzip`
