@@ -8,7 +8,12 @@ set depth_cue, 0; set opaque_background, 0; ray 800, 800; png output_file_name.p
 
 ##CentOS
 ###upside
-
+0. download python3
+   `tar -xzvf` python3.tar
+   `cd ` the directory
+   `./configure`
+   `make`
+   `make install`
 1. `sudo yum install hdf5 hdf5-devel`
 2. `sudo easy_install h5py`
 3. `sudo yum install eigen3`
