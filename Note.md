@@ -17,6 +17,7 @@ set depth_cue, 0; set opaque_background, 0; ray 800, 800; png output_file_name.p
 1. `sudo yum install hdf5 hdf5-devel`
 2. `sudo easy_install h5py`
 3. `sudo yum install eigen3`
+4. download python2.7, `./configure`, `make` & `make altinstal`
 
 ### GCC
 `sudo yum install centos-release-scl`
