@@ -5,8 +5,9 @@ set depth_cue, 0; set opaque_background, 0; ray 800, 800; png output_file_name.p
 
 ###(Pymol v1.7)
 1. set cartoon_fancy_helices, 1
-## VMD
-### Tkconsole
+
+##VMD
+###Tkconsole
 mol load parm7 *.prmtop mdcrd *mdcrd
 
 ##CentOS
