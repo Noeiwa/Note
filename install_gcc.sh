@@ -36,19 +36,19 @@ for f in *.tar*; do tar xfk $f; done
 # Step 1. Install GMP
 cd $GMP_VERSION
 ./configure --enable-shared --enable-static --prefix=/usr/local
-make && make check && make install
+make $PARALLEL_MAKE && make check && make install
 cd ..
 
 # Step 2. Install MPFR
 cd $MPFR_VERSION
 ./configure --enable-shared --enable-static --prefix=/usr/local --with-gmp=/usr/local
-make && make check && make install
+make $PARALLEL_MAKE && make check && make install
 cd ..
 
 # Step 3. Install MPC
 cd $MPC_VERSION
 ./configure --enable-shared --enable-static --prefix=/usr/local --with-gmp=/usr/local --with-mpfr=/usr/local
-make && make check && make install
+make $PARALLEL_MAKE && make check && make install
 cd ..
 
 echo /usr/local/lib/ >> /etc/ld.so.conf
@@ -60,7 +60,7 @@ ldconfig
 cd $GCC_VERSION
 mkdir -p build && cd build
 ../configure --enable-shared --disable-bootstrap --enable-languages=c,c++ --enable-libgomp --enable-threads=posix --with-gmp=/usr/local --with-mpfr=/usr/local --with-mpc=/usr/local --with-fpmath=sse --disable-multilib
-make && make install
+make $PARALLEL_MAKE && make install
 ldconfig
 
 trap - EXIT
