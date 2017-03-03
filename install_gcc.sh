@@ -3,10 +3,10 @@ set -e
 trap 'previous_command=$this_command; this_command=$BASH_COMMAND' DEBUG
 trap 'echo FAILED COMMAND: $previous_command' EXIT
 
-#-------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 # This script will download packages for, configure, build and install a GCC.
 # Customize the variables (GCC_VERSION, MPFR_VERSION, etc.) before running.
-#-------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2
