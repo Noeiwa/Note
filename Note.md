@@ -1,6 +1,7 @@
 ##PyMol
 
 1. save a transparent figure
+
 `set depth_cue, 0; set opaque_background, 0; ray 800, 800; png output_file_name.png`
 
 ###(Pymol v1.7)
