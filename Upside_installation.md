@@ -14,3 +14,9 @@ scipy-0.14.0
 cython-0.21.1  
 tables-3.1.1  
 cvxopt-1.1.7  
+
+binutils-2.25  
+`CC=/usr/bin/gcc ./configure`  
+`make`  
+`make install`  
+`hash -r`  
