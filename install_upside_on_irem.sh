@@ -19,7 +19,7 @@ mkdir -p upside_dep
 cd upside_dep
 
 PARALLEL_MAKE=-j4
-HDF5_VERSION=hdf5-1.8.18
+HDF5_VERSION=hdf5-1.8.14
 NUMPY_VERSION=numpy-1.9.1
 PRODY_VERSION=ProDy-1.5.1
 CYTHON_VERSION=Cython-0.21.1
@@ -32,7 +32,7 @@ BINUTILS_VERSION=binutils-2.25
 # Download packages
 #export http_proxy=$HTTP_PROXY https_proxy=$HTTP_PROXY ftp_proxy=$HTTP_PROXY
 
-wget -nc https://support.hdfgroup.org/ftp/HDF5/current18/src/${HDF5_VERSION}.tar
+wget -nc https://support.hdfgroup.org/ftp/HDF5/releases/${HDF5_VERSION}/src/${HDF5_VERSION}.tar.gz
 wget -nc https://pypi.python.org/packages/41/39/45791d98f1c82789b96d7bdc36f34792d0106b44680fb946d5de9cd5c979/${NUMPY_VERSION}.tar.gz#md5=78842b73560ec378142665e712ae4ad9
 #mv ${NUMPY_VERSION}.tar.gz#md5=78842b73560ec378142665e712ae4ad9 ${NUMPY_VERSION}.tar.gz
 wget -nc https://pypi.python.org/packages/71/a5/034f1d65faec86ee56d896effb97989d1d05aabea986f47efd1161eb20ff/${PRODY_VERSION}.tar.gz#md5=30bfbc8566269d4c9eb5998ba9025728
