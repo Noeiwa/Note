@@ -1,7 +1,7 @@
 #! /bin/bash
 set -e
-#trap 'previous_command=$this_command; this_command=$BASH_COMMAND' DEBUG
-#trap 'echo FAILED COMMAND: $previous_command' EXIT
+trap 'previous_command=$this_command; this_command=$BASH_COMMAND' DEBUG
+trap 'echo FAILED COMMAND: $previous_command' EXIT
 
 #-----------------------------------------------------------------------------
 # This script will download packages for, configure, build and install
@@ -9,13 +9,13 @@ set -e
 # Customize the variables (HDF5_VERSION, NUMPY_VERSION, etc.) before running.
 #-----------------------------------------------------------------------------
 
-#if [[ $EUID -ne 0 ]]; then
-#   echo "This script must be run as root" 1>&2
-#   exit 1
-#fi
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root" 1>&2
+   exit 1
+fi
 
 # Creat a directory
-#mkdir -p upside_dep
+mkdir -p upside_dep
 cd upside_dep
 
 #PARALLEL_MAKE=-j4
@@ -38,76 +38,69 @@ BINUTILS_VERSION=binutils-2.25
 #wget -nc https://pypi.python.org/packages/71/a5/034f1d65faec86ee56d896effb97989d1d05aabea986f47efd1161eb20ff/ProDy-1.5.1.tar.gz#md5=30bfbc8566269d4c9eb5998ba9025728
 #wget -nc https://pypi.python.org/packages/ae/b2/f56de6cea0bf1dcc204a966b95eacb0fc824abda30d4d6eb90b160400ddb/Cython-0.21.1.tar.gz#md5=c59163d7c72c0a0ee5eb84edd17935ed
 #wget -nc 
-#numpy-1.9.1.tar.gz
-#ProDy-1.5.1.tar.gz
-#Cython-0.21.1.tar.gz
-#cvxopt-1.1.7.tar.gz
-#numexpr-2.4.tar.gz
-#scipy-0.14.0.tar.gz
-#tables-3.1.1.tar.gz
-
 wget -nc https://ftp.gnu.org/gnu/binutils/${BINUTILS_VERSION}.tar.bz2
 
 
 # Extract Packages
-#echo "Extracting tar files ..."
-#for f in *.tar*; do tar xfk $f; done
+echo "Extracting tar files ..."
+for f in *.tar*; do tar xfk $f; done
 
 # Step 1. Install HDF5
 cd ${HDF5_VERSION}
-#./configure
-#make
-#make install
+./configure
+make
+make install
 cd ..
 
 # Step 2. Install Numpy
 cd ${NUMPY_VERSION}
-#python setup.py build
-#python setup.py install
+python setup.py build
+python setup.py install
 cd ..
 
 # Step 3. Install ProDy
 cd ${PRODY_VERSION}
-#python setup.py build
-#python setup.py install
+python setup.py build
+python setup.py install
 cd ..
 
 # Step 4. Install Cython
 cd ${CYTHON_VERSION}
-#python setup.py build
-#python setup.py install
+python setup.py build
+python setup.py install
 cd ..
 
 # Step 5. Install Cvxopt
 cd ${CVXOPT_VERSION}
-#python setup.py build
-#python setup.py install
+python setup.py build
+python setup.py install
 cd ..
 
 # Step 6. Install Numexpr
 cd ${NUMEXPR_VERSION}
-#python setup.py build
-#python setup.py install
+python setup.py build
+python setup.py install
 cd ..
 
 # Step 7. Install Scipy
 cd ${SCIPY_VERSION}
-#python setup.py build
-#python setup.py install
+python setup.py build
+python setup.py install
 cd ..
 
 # Step 8. Install Tables 
 cd ${TABLES_VERSION}
-#python setup.py build
-#python setup.py install
+python setup.py build
+python setup.py install
 cd ..
 
 # Step 9. binutils
-#cd ${BINUTILS_VERSION}
-#CC=/usr/local/bin/gcc ./configure
-#make
-#make install
-#hash -r
+cd ${BINUTILS_VERSION}
+CC=/usr/local/bin/gcc ./configure
+make
+make install
+hash -r
 
+echo "Completed!"
 
                                                                    
