@@ -18,7 +18,7 @@ fi
 mkdir -p upside_dep
 cd upside_dep
 
-#PARALLEL_MAKE=-j4
+PARALLEL_MAKE=-j4
 HDF5_VERSION=hdf5-1.8.18
 NUMPY_VERSION=numpy-1.9.1
 PRODY_VERSION=ProDy-1.5.1
@@ -32,12 +32,15 @@ BINUTILS_VERSION=binutils-2.25
 # Download packages
 #export http_proxy=$HTTP_PROXY https_proxy=$HTTP_PROXY ftp_proxy=$HTTP_PROXY
 
-#wget -nc https://support.hdfgroup.org/ftp/HDF5/current18/src/${HDF5_VERSION}.tar
-#wget -nc https://pypi.python.org/packages/41/39/45791d98f1c82789b96d7bdc36f34792d0106b44680fb946d5de9cd5c979/numpy-1.9.1.tar.gz#md5=78842b73560ec378142665e712ae4ad9
+wget -nc https://support.hdfgroup.org/ftp/HDF5/current18/src/${HDF5_VERSION}.tar
+wget -nc https://pypi.python.org/packages/41/39/45791d98f1c82789b96d7bdc36f34792d0106b44680fb946d5de9cd5c979/${NUMPY_VERSION}.tar.gz#md5=78842b73560ec378142665e712ae4ad9
 #mv ${NUMPY_VERSION}.tar.gz#md5=78842b73560ec378142665e712ae4ad9 ${NUMPY_VERSION}.tar.gz
-#wget -nc https://pypi.python.org/packages/71/a5/034f1d65faec86ee56d896effb97989d1d05aabea986f47efd1161eb20ff/ProDy-1.5.1.tar.gz#md5=30bfbc8566269d4c9eb5998ba9025728
-#wget -nc https://pypi.python.org/packages/ae/b2/f56de6cea0bf1dcc204a966b95eacb0fc824abda30d4d6eb90b160400ddb/Cython-0.21.1.tar.gz#md5=c59163d7c72c0a0ee5eb84edd17935ed
-#wget -nc 
+wget -nc https://pypi.python.org/packages/71/a5/034f1d65faec86ee56d896effb97989d1d05aabea986f47efd1161eb20ff/${PRODY_VERSION}.tar.gz#md5=30bfbc8566269d4c9eb5998ba9025728
+wget -nc https://pypi.python.org/packages/ae/b2/f56de6cea0bf1dcc204a966b95eacb0fc824abda30d4d6eb90b160400ddb/${CYTHON_VERSION}.tar.gz#md5=c59163d7c72c0a0ee5eb84edd17935ed
+wget -nc https://pypi.python.org/packages/24/42/0cc41cc5c23ff5cde9b3a2a1e89560aeb6af74480e925b4da1e08a1ad2be/${CVXOPT_VERSION}.tar.gz
+wget -nc https://pypi.python.org/packages/52/2b/2a0ae329ea41782d55c5165c662117cc22a1dce569d7796627d039f6888e/${NUMEXPR_VERSION}.tar.gz#md5=df7e8d9e9dbb145b56d43c465c2bf854
+wget -nc https://pypi.python.org/packages/76/3d/ad5f3d19d553cf4a01fb57dd95dc83d9493e3d289511881d4900e0f17ac0/${SCIPY_VERSION}.tar.gz#md5=d7c7f4ccf8b07b08d6fe49d5cd51f85d
+wget -nc https://pypi.python.org/packages/69/db/2c5544686baace15d2e7f3c2363ba865049985cede70d55d7e883240b73d/${TABLES_VERSION}.tar.gz
 wget -nc https://ftp.gnu.org/gnu/binutils/${BINUTILS_VERSION}.tar.bz2
 
 
@@ -48,7 +51,7 @@ for f in *.tar*; do tar xfk $f; done
 # Step 1. Install HDF5
 cd ${HDF5_VERSION}
 ./configure
-make
+make ${PARALLEL_MAKE}
 make install
 cd ..
 
@@ -97,7 +100,7 @@ cd ..
 # Step 9. binutils
 cd ${BINUTILS_VERSION}
 CC=/usr/local/bin/gcc ./configure
-make
+make ${PARALLEL_MAKE}
 make install
 hash -r
 
