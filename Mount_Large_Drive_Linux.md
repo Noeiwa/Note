@@ -6,4 +6,8 @@
 6. mount /dev/sdb1  /home2
 7. blkid
 8. vi /etc/fstab
-9. UUID=*  /home2      ext4    defaults        1 2
+9. UUID=*  /home2      ext4    defaults        0  0  
+
+Change owner
+
+sudo chown -R ngaam:ngaam /mount_point
