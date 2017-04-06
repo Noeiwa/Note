@@ -1,3 +1,49 @@
+# Download Python 2.7
+# ./configure --prefix=~/local
+# make -j4
+# make install
+# wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py
+# python2.7 ez_setup.py --user
+# curl -O https://bootstrap.pypa.io/get-pip.py
+# python2.7 get-pip.py
+# export PATH=~/.local/bin:$PATH
+# pip install --user virtualenv
+# pip install tables
+
+#!/bin/bash
+set -e
+
+script_path="`dirname $0`"
+
+mkdir -p "$script_path/obj"
+mkdir -p "$script_path/run"
+cd "$script_path/obj"
+
+if [ "$(basename "$PWD")" != "obj" ] ; then
+    echo "internal error"
+    exit 1
+fi
+rm -rf CMakeCache.txt CMakeFiles Makefile cmake_install.cmake
+
+PATH=/home/user_name/local/bin:$PATH HDF5_ROOT=/home/user_name/local cmake ../src -DEIGEN3_INCLUDE_DIR=/home/user_name/local/include/eigen3
+
+make -j4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #! /bin/bash
 set -e
 trap 'previous_command=$this_command; this_command=$BASH_COMMAND' DEBUG
