@@ -10,6 +10,10 @@
 # pip install --user virtualenv
 # pip install tables
 
+# using absolute path for python2.7
+
+
+
 #!/bin/bash
 set -e
 
