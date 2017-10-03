@@ -1,0 +1,12 @@
+CC = g++ -std=c++11
+BIN = bin
+BUILD = build
+
+FLAGS = -O2 
+OBJ = $(BIN)/main.o
+
+all:
+	$(CC) -c src/main.cpp -o $(BIN)/main.o $(FLAGS)
+	$(CC) $(OBJ) -o $(BIN)/main.run $(LIBS)
+run:
+	./$(BIN)/main.run
