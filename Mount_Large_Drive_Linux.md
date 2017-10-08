@@ -10,4 +10,4 @@
 
 Change owner
 
-sudo chown -R ngaam:ngaam /mount_point
+sudo chown -R nyaam:nyaam /mount_point
