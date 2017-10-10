@@ -18,3 +18,10 @@ sudo chmod -R 775 /var/www
 
 Enable cgi-bin by
 sudo a2enmod cgi
+
+Install Torque
+
+
+sudo apt-get install zlib1g-dev libxml2-dev
+./congifure
+make && make install
