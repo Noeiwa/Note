@@ -6,3 +6,11 @@ sudo ufw app list
 sudo ufw allow 'Apache Full'
 
 sudo systemctl status apache2
+
+
+Now that you've got everything all set up, you'd probably like to add a website to it. By default, all of the files Apache serves
+up to the internet are located at "/var/www/". However, you cannot write to this folder. Let's make it so you can:
+
+sudo usermod -g www-data [YOUR USERNAME]
+sudo chown -R www-data:www-data /var/www
+sudo chmod -R 775 /var/www
