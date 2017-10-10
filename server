@@ -14,3 +14,7 @@ up to the internet are located at "/var/www/". However, you cannot write to this
 sudo usermod -g www-data [YOUR USERNAME]
 sudo chown -R www-data:www-data /var/www
 sudo chmod -R 775 /var/www
+
+
+Enable cgi-bin by
+sudo a2enmod cgi
