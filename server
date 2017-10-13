@@ -28,5 +28,5 @@ make && make install
 
 
 Install CentOS 7
-Hit Tab to edit 'Install CentOS ...'
-Replace 'quiet' at the end of the last line with 'nomodeset'
+Select 'Trobleshooting' 
+Click 'Software options'
