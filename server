@@ -25,3 +25,8 @@ Install Torque
 sudo apt-get install zlib1g-dev libxml2-dev
 ./congifure
 make && make install
+
+
+Install CentOS 7
+Hit Tab to edit 'Install CentOS ...'
+Replace 'quiet' at the end of the last line with 'nomodeset'
