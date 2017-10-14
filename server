@@ -19,14 +19,35 @@ sudo chmod -R 775 /var/www
 Enable cgi-bin by
 sudo a2enmod cgi
 
-Install Torque
+
 
 
 sudo apt-get install zlib1g-dev libxml2-dev
 ./congifure
 make && make install
 
-
+================== On CentOS 7 ==================
 Install CentOS 7
 Select 'Trobleshooting' 
 Click 'Software options'
+
+Install depencies for Sibe
+Install apache2 on CentOS 7
+sudo yum -y install httpd
+Allow the default HTTP and HTTPS port, ports 80 and 443, through firewall
+sudo firewall-cmd --permanent --add-port=80/tcp
+sudo firewall-cmd --permanent --add-port=443/tcp
+sudo firewall-cmd --reload
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo systemctl status httpd
+
+Install Torque
+sudo yum libxml2-devel
+
+For cgi
+sestatus -b
+chcon -R -t httpd_sys_rw_content_t job
+For Gnuplot 
+yum -y install libpng-devel gd-devel
+Then install gnuplot
