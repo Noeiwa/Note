@@ -20,7 +20,7 @@ Enable cgi-bin by
 sudo a2enmod cgi
 
 
-
+sudo aureport -a
 
 sudo apt-get install zlib1g-dev libxml2-dev
 ./congifure
@@ -42,8 +42,17 @@ sudo systemctl start httpd
 sudo systemctl enable httpd
 sudo systemctl status httpd
 
+
 Install Torque
-sudo yum libxml2-devel
+yum install libxml2-devel openssl-devel gcc gcc-c++ boost-devel
+sudo firewall-cmd --permanent --add-port=15001/tcp
+sudo firewall-cmd --permanent --add-port=15003/tcp
+sudo firewall-cmd --reload
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo systemctl status httpd
+
+vi /etc/httpd/conf.modules.d/01-cgi.conf
 
 For cgi
 sestatus -b
