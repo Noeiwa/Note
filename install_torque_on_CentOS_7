@@ -1,0 +1,61 @@
+# Install torque on a single node Centos 7
+
+### Install depedencies
+sudo yum install libxml2-devel openssl-devel gcc gcc-c++ boost-devel
+
+### Configuring firewall
+sudo firewall-cmd --permanent --add-port=15001/tcp 
+sudo firewall-cmd --permanent --add-port=15003/tcp 
+sudo firewall-cmd --reload 
+
+### Build torque
+./configure 
+make 
+make install 
+
+cp contrib/init.d/trqauthd /etc/init.d/
+cp contrib/init.d/pbs_mom /etc/init.d/pbs_mom
+cp contrib/init.d/pbs_server /etc/init.d/pbs_server
+cp contrib/init.d/pbs_sched /etc/init.d/pbs_sched 
+
+chkconfig --add trqauthd
+chkconfig --add pbs_mom
+chkconfig --add pbs_server
+chkconfig --add pbs_sched
+ 
+echo '/usr/local/lib' > /etc/ld.so.conf.d/torque.conf
+ldconfig
+service trqauthd start
+
+### Configuring torque
+echo '/usr/local/lib' > /etc/ld.so.conf.d/torque.conf
+./torque.setup root
+vi /var/spool/torque/server_priv/nodes 
+YOUR_MACHINE_NAME np=4 
+vi /var/spool/torque/mom_priv/config 
+$pbsserver YOUR_MACHINE_NAME
+$logeven 255 
+
+qterm -t quick
+pbs_server
+pbs_mom (normally only on the node)
+
+pbs_sched
+
+### Queue configuration
+
+Create a new queue which we name test here : 
+
+qmgr -c "create queue test queue_type=execution" 
+qmgr -c "set queue test enabled=true"
+qmgr -c "set queue test started=true"
+qmgr -c "set server scheduling=True" 
+
+### Test
+#!/bin/bash
+#PBS -l walltime=00:1:00
+#PBS -l nice=19
+#PBS -q test 
+date
+sleep 10
+date
