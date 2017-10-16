@@ -34,7 +34,7 @@ vi /var/spool/torque/server_priv/nodes
 YOUR_MACHINE_NAME np=4 
 vi /var/spool/torque/mom_priv/config 
 $pbsserver YOUR_MACHINE_NAME
-$logeven 255 
+$logevent 255 
 
 qterm -t quick
 pbs_server
@@ -42,14 +42,15 @@ pbs_mom (normally only on the node)
 
 pbs_sched
 
-### Queue configuration
+chkconfig pbs_mom on
+chkconfig pbs_sched on
+chkconfig pbs_server on
+pbsnodes -a
 
-Create a new queue which we name test here : 
-
-qmgr -c "create queue test queue_type=execution" 
-qmgr -c "set queue test enabled=true"
-qmgr -c "set queue test started=true"
-qmgr -c "set server scheduling=True" 
+If there is two networks, please modify 
+/etc/hosts
+ip hostname (localhost.localdomain localhost4 localhost4.localdomain4)
+Note: in (.) is important to indicate the info for node status
 
 ### Test
 #!/bin/bash
