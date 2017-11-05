@@ -14,3 +14,4 @@ export PYTHONPATH=~/local/lib/python2.6/site-packages
 export HDF5_DIR=~/local/hdf5 
 export LD_LIBRARY_PATH=~/local/lib/python2.6/site-packages:~/local/hdf5/lib 
 python $*
+ 
