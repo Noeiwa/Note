@@ -35,7 +35,9 @@ make -j4
 
 
 
-
+# something wrong in numpy
+rm The_Directory/lib/pythonX.X/site_packages/numpy*
+pip install --no-cache numpy
 
 
 
