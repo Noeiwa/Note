@@ -1,0 +1,3 @@
+brew install gflags glog
+brew prune
+brew link gflags
