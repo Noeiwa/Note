@@ -1,3 +1,11 @@
 brew install gflags glog
 brew prune
 brew link gflags
+
+
+Error:
+“The C++ compiler ”/usr/bin/c++“ is not able to compile a simple test program.” 
+
+Solution:
+rm -rf /Library/Developer/CommandLineTools
+xcode-select --install
