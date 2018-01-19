@@ -1,8 +1,11 @@
+
+
 protnam=$1  
 target=$2  
 PyMOL ${rootdir}/${protnam}.pdb ${rootdir}/${target}.pdb -cqd 'align '${protnam}', '${target}';   
 hide all;   
-show cartoon;   
+show cartoon; 
+set cartoon_fancy_helices, 1
 color red, '${target}';   
 select loops, resi 760-790;   
 center loops;   
