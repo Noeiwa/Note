@@ -11,7 +11,7 @@
 `mol load parm7 *.prmtop mdcrd *mdcrd`
 
 ##CentOS
-###upside
+###Upside
 0. download python3
    `tar -xzvf` python3.tar
    `cd ` the directory
