@@ -5,8 +5,9 @@ target=$2
 PyMOL ${rootdir}/${protnam}.pdb ${rootdir}/${target}.pdb -cqd 'align '${protnam}', '${target}';   
 hide all;   
 show cartoon; 
-set cartoon_fancy_helices, 1
-set cartoon_fancy_sheets, 1
+align MODEL & i. 100-200, TARGET & i. 100-200, cutoff=1 
+set cartoon_fancy_helices, 1 
+set cartoon_fancy_sheets, 1 
 color red, '${target}';   
 select loops, resi 760-790;   
 center loops;   
