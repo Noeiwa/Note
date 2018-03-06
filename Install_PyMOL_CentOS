@@ -1,4 +1,8 @@
-yum update  
+yum update
+yum install centos-release-scl
+yum install devtoolset-3-toolchain
+scl enable devtoolset-3 bash
+
 sudo yum install epel-release  
 sudo yum install subversion gcc gcc-c++ kernel-devel python-devel tkinter python-pmw glew-devel freeglut-devel libpng-devel freetype-devel libxml2-devel apbs  
 
