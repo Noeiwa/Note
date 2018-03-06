@@ -1,0 +1,10 @@
+yum update  
+sudo yum install epel-release  
+sudo yum install subversion gcc gcc-c++ kernel-devel python-devel tkinter python-pmw glew-devel freeglut-devel libpng-devel freetype-devel libxml2-devel apbs  
+
+wget https://jaist.dl.sourceforge.net/project/pymol/pymol/1.7/pymol-v1.7.6.0.tar.bz2
+
+tar -xjf pymol-v1.7.6.0.tar.bz2
+
+cd pymol
+python setup.py build install
