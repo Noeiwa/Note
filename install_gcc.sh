@@ -14,10 +14,16 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # Creat a directory
-mkdir -p gcc
+if [ ! -f gcc ]
+then
+  mkdir -p gcc
+else
+  rm -rf gcc
+fi
 cd gcc/
 PARALLEL_MAKE=-j4
 GCC_VERSION=gcc-6.3.0
+GCC_VERSION=gcc-5.4.0
 MPFR_VERSION=mpfr-3.1.5
 GMP_VERSION=gmp-6.1.2
 MPC_VERSION=mpc-1.0.3
