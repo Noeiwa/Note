@@ -52,6 +52,29 @@ If there is two networks, please modify
 ip hostname (localhost.localdomain localhost4 localhost4.localdomain4)
 Note: in (.) is important to indicate the info for node status
 
+
+
+
+
+
+systemctl start pbs_sched.service
+systemctl enable pbs_mom.service
+systemctl start pbs_mom.service
+systemctl enable pbs_server.service
+systemctl start pbs_server.service
+chkconfig pbs_sched on
+
+
+
+
+
+
+
+
+
+
+
+
 ### Test
 #!/bin/bash
 #PBS -l walltime=00:1:00
