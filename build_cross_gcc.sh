@@ -12,7 +12,7 @@ trap 'echo FAILED COMMAND: $previous_command' EXIT
 # See: http://preshing.com/20141119/how-to-build-a-gcc-cross-compiler
 #-------------------------------------------------------------------------------------------
 
-INSTALL_PATH=/Volumes/Ngaam/gnu/opt/cross
+INSTALL_PATH=/Volumes/Nyaam/gnu/opt/cross
 TARGET=x86_64-linux
 USE_NEWLIB=0
 LINUX_ARCH=x86_64
