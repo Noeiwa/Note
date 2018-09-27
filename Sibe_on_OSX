@@ -1,7 +1,7 @@
 brew install gflags glog
 brew prune
 brew link gflags
-brew link --overwrite gnuplot
+brew link --overwrite gflags
 
 
 Error:
