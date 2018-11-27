@@ -5,11 +5,12 @@ set -e
 # build and install GCC, Make, Cmake on Unix-like systems. Customize the 
 # variables (GCC_VERSION, MAKE_VERSION, etc.) before running.
 # Copyright@2017, Leri Analytics
-# Email: nyaam.ch@gmail.com
+# Email: yaan.jang@gmail.com
 #-----------------------------------------------------------------------------
 
 # Path where to install without root
-LOCAL_PATH=/home/username/local
+dirt=`eval echo ~$USER`
+LOCAL_PATH=${dirt}/local
 
 # Customize the versions
 PARALLEL_MAKE=-j16
